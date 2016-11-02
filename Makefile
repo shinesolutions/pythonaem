@@ -1,5 +1,5 @@
-all: deps clean install test test-integration doc
-ci: deps clean install test doc
+all: deps clean lint test install test-integration doc
+ci: deps clean lint test install doc
 
 deps:
 	pip install -r requirements.txt
