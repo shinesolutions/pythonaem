@@ -23,7 +23,7 @@ setup(
     description="pythonaem is a Python client for Adobe Experience Manager (AEM) API, written on top of swagger_aem",
     author_email="opensource@shinesolutions.com",
     url="https://github.com/shinesolutions/pythonaem",
-    keywords=["Adobe Experience Manager", "AEM"],
+    keywords=["Adobe Experience Manager", "AEM", "CQ"],
     install_requires=["BeautifulSoup == 3.2.1", "xmltodict == 0.10.2"],
     packages=find_packages(),
     include_package_data=True,
