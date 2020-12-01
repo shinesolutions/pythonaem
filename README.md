@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/travis/shinesolutions/pythonaem.svg)](http://travis-ci.org/shinesolutions/pythonaem)
+[![Build Status](https://github.com/shinesolutions/pythonaem/workflows/CI/badge.svg)](https://github.com/shinesolutions/pythonaem/actions?query=workflow%3ACI)
 [![Published Version](https://badge.fury.io/py/pythonaem.svg)](https://pypi.python.org/pypi/pythonaem)
 
 pythonaem
