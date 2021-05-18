@@ -1,7 +1,0 @@
-.DS_Store
-.coverage
-*.egg
-*.egg-info
-*.pyc
-build
-doc
