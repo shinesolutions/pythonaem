@@ -1,0 +1,164 @@
+aem:
+  actions:
+    get_aem_health_check:
+      api: custom
+      operation: get_aem_health_check
+      params:
+        optional:
+          tags: '{tags}'
+          combine_tags_or: '{combine_tags_or}'
+      responses:
+        200:
+          handler: json_aem_health_check
+          message: 'AEM health check retrieved'
+flushagent:
+  responses:
+    404:
+      handler: simple_error
+      message: 'Flush agent {name} not found on {run_mode}'
+  actions:
+    create_update:
+      api: sling
+      operation: post_agent
+      params:
+        required:
+          runmode: '{run_mode}'
+          name: '{name}'
+        optional:
+          jcrprimary_type: cq:Page
+          jcrcontentcqname: '{name}'
+          jcrcontentjcrtitle: '{title}'
+          jcrcontentjcrdescription: '{description}'
+          jcrcontentslingresource_type: cq/replication/components/agent
+          jcrcontenttransport_uri: '{dest_base_url}/dispatcher/invalidate.cache'
+          jcrcontentlog_level: '{log_level}'
+          jcrcontentno_versioning: true
+          # NOTE: the param values below contains {param} syntax as string
+          # These {param} strings will be passed to AEM AS-IS (yes, including the curly braces)
+          jcrcontentprotocol_http_headers:
+            - 'CQ-Action:{action}'
+            - 'CQ-Handle:{path}'
+            - 'CQ-Path:{path}'
+          jcrcontentprotocol_http_headers_type_hint: String[]
+          jcrcontentprotocol_http_method: GET
+          jcrcontentretry_delay: '{retry_delay}'
+          jcrcontentserialization_type: flush
+          jcrcontentjcrmixin_types: cq:ReplicationStatus
+          jcrcontenttrigger_receive: true
+          jcrcontenttrigger_specific: true
+          jcrcontentcqtemplate: /libs/cq/replication/templates/agent
+          jcrcontentenabled: true
+          jcrcontentssl: '{ssl}'
+      responses:
+        200:
+          handler: simple
+          message: 'Flush agent {name} updated on {run_mode}'
+        201:
+          handler: simple
+          message: 'Flush agent {name} created on {run_mode}'
+    delete:
+      api: sling
+      operation: post_agent
+      params:
+        required:
+          runmode: '{run_mode}'
+          name: '{name}'
+        optional:
+          operation: delete
+      responses:
+        200:
+          handler: simple
+          message: 'Flush agent {name} deleted on {run_mode}'
+        204:
+          handler: simple
+          message: 'Flush agent {name} deleted on {run_mode}'
+        403:
+          handler: simple_error
+          message: 'Flush agent {name} not found on {run_mode}'
+    exists:
+      api: sling
+      operation: get_agent
+      params:
+        required:
+          runmode: '{run_mode}'
+          name: '{name}'
+      responses:
+        302:
+          handler: simple_true
+          message: 'Flush agent {name} exists on {run_mode}'
+        403:
+          handler: simple_false
+          message: 'Flush agent {name} not found on {run_mode}'
+        404:
+          handler: simple_false
+          message: 'Flush agent {name} not found on {run_mode}'
+replicationagent:
+  responses:
+    404:
+      handler: simple_error
+      message: 'Replication agent {name} not found on {run_mode}'
+  actions:
+    create_update:
+      api: sling
+      operation: post_agent
+      params:
+        required:
+          runmode: '{run_mode}'
+          name: '{name}'
+        optional:
+          jcrprimary_type: cq:Page
+          jcrcontentcqname: '{name}'
+          jcrcontentjcrtitle: '{title}'
+          jcrcontentjcrdescription: '{description}'
+          jcrcontentslingresource_type: cq/replication/components/agent
+          jcrcontentserialization_type: durbo
+          jcrcontenttransport_uri: '{dest_base_url}/bin/receive?sling:authRequestLogin=1'
+          jcrcontenttransport_user: '{transport_user}'
+          jcrcontenttransport_password: '{transport_password}'
+          jcrcontentlog_level: '{log_level}'
+          jcrcontentretry_delay: '{retry_delay}'
+          jcrcontentcqtemplate: /libs/cq/replication/templates/agent
+          jcrcontentenabled: true
+      responses:
+        200:
+          handler: simple
+          message: 'Replication agent {name} updated on {run_mode}'
+        201:
+          handler: simple
+          message: 'Replication agent {name} created on {run_mode}'
+    delete:
+      api: sling
+      operation: post_agent
+      params:
+        required:
+          runmode: '{run_mode}'
+          name: '{name}'
+        optional:
+          operation: delete
+      responses:
+        200:
+          handler: simple
+          message: 'Replication agent {name} deleted on {run_mode}'
+        204:
+          handler: simple
+          message: 'Replication agent {name} deleted on {run_mode}'
+        403:
+          handler: simple_error
+          message: 'Replication agent {name} not found on {run_mode}'
+    exists:
+      api: sling
+      operation: get_agent
+      params:
+        required:
+          runmode: '{run_mode}'
+          name: '{name}'
+      responses:
+        302:
+          handler: simple_true
+          message: 'Replication agent {name} exists on {run_mode}'
+        403:
+          handler: simple_false
+          message: 'Replication agent {name} not found on {run_mode}'
+        404:
+          handler: simple_false
+          message: 'Replication agent {name} not found on {run_mode}'

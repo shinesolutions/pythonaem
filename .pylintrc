@@ -1,0 +1,9 @@
+# The following rules are disabled due to the implementation of PythonAEM is aimed to be consistent
+# with Ruby AEM client implementation since PythonAEM is a port of Ruby AEM
+# R0201: no-self-use - Allow methods with no self use
+# R0801: duplicate-code - Allow similar code between resources
+# R0903: too-few-public-methods - Allow classes with few public methods
+# R0914: too-many-locals - Allow many locals
+# W0102: dangerous-default-value - Allow default opts on resource methods
+[MESSAGES CONTROL]
+disable=R0201,R0801,R0903,R0914,W0102

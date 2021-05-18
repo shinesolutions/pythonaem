@@ -1,0 +1,2 @@
+pyyaml==5.4.1
+swaggeraem==1.2.0
