@@ -71,7 +71,7 @@ Replication agent:
     replication_agent = aem.replication_agent('author', 'some-replication-agent')
 
     # create or update replication agent
-    result = replication_agent('author', 'some-replication-agent')
+    result = replication_agent.create_update('Some Replication Agent Title', 'Some Replication agent description', 'http://somehost:8080')
 
     # check replication agent's existence
     result = replication_agent.exists()
