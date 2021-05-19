@@ -56,7 +56,6 @@ class Client:
         keyword_params = {}
         if 'optional' in action_spec['params']:
             optional_params = action_spec['params']['optional']
-
             if isinstance(optional_params, dict):
                 for key, value in optional_params.items():
                     self.__add_optional_param(key, value, keyword_params, call_params)
@@ -75,15 +74,9 @@ class Client:
         try:
             swagger_method = operation_to_method(operation)
             swagger_http_method_name = '{}_with_http_info'.format(swagger_method)
-            print(api)
-            print(swagger_http_method_name)
-            print(params)
-            print(keyword_params)
             data, status_code, headers = getattr(
                 api, swagger_http_method_name
             )(*params, **keyword_params)
-            print("aaaaaaa")
-            print(status_code)
             response = Response(status_code, data, headers)
         except ApiException as exception:
             response = Response(exception.status, exception.body, exception.headers)
@@ -118,12 +111,9 @@ class Client:
     # Switch boolean type  check to isinstance after integration and unit tests have better coverage
     # pylint: disable=unidiomatic-typecheck
     def __add_optional_param(self, key, value, params, call_params):
-        print(key)
-        print(value)
-        print(call_params)
         # if there is no value in optional param spec,
         # then only add optional param that is set in call parameters
-        if not value:
+        if value is None:
             if key in call_params:
                 params[str(key)] = call_params[str(key)]
         # if value is provided in optional param spec,
