@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Fixed
+- Fix Makefile publish target to use twine to upload the dist packages
+
 ## 1.1.0 - 2021-05-18
 ### Added
 - Initial version

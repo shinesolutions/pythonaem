@@ -44,6 +44,7 @@ release:
 
 publish:
 	python3 setup.py sdist
+	twine upload dist/*
 
 publish-test:
 	python3 setup.py register -r pypitest && \
