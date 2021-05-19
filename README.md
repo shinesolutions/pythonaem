@@ -6,7 +6,7 @@ PythonAEM
 ---------
 
 PythonAEM is a Python client for [Adobe Experience Manager (AEM)](http://www.adobe.com/au/marketing-cloud/enterprise-content-management.html) API.
-It is written on top of [pyswaggeraem](https://github.com/shinesolutions/swagger-aem/blob/master/python/README.md) and provides resource-oriented API and convenient response handling.
+It is written on top of [swaggeraem](https://github.com/shinesolutions/swagger-aem/blob/master/clients/python/README.md) and provides resource-oriented API and convenient response handling.
 
 Learn more about PythonAEM:
 
