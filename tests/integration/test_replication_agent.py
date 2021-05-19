@@ -29,6 +29,14 @@ class TestReplicationAgent(unittest.TestCase):
         result = self.replication_agent.create_update('Some Updated Replication Agent Title', 'Some updated replication agent description', 'https://someotherhost:8081')
         self.assertEqual(result.message, 'Replication agent some-replication-agent updated on author')
 
+    def test_replication_agent_create_update_should_succeed_disable(self):
+        result = self.replication_agent.disable()
+        self.assertEqual(result.message, 'Replication agent some-replication-agent disabled on author')
+
+    def test_replication_agent_create_update_should_succeed_enable(self):
+        result = self.replication_agent.enable()
+        self.assertEqual(result.message, 'Replication agent some-replication-agent enabled on author')
+
     def test_replication_agent_delete_should_succeed_when_replication_agent_exists(self):
         result = self.replication_agent.delete()
         self.assertEqual(result.message, 'Replication agent some-replication-agent deleted on author')

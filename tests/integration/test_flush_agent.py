@@ -29,6 +29,14 @@ class TestFlushAgent(unittest.TestCase):
         result = self.flush_agent.create_update('Some Updated Flush Agent Title', 'Some updated flush agent description', 'https://someotherhost:8081')
         self.assertEqual(result.message, 'Flush agent some-flush-agent updated on author')
 
+    def test_flush_agent_create_update_should_succeed_disable(self):
+        result = self.flush_agent.disable()
+        self.assertEqual(result.message, 'Flush agent some-flush-agent disabled on author')
+
+    def test_flush_agent_create_update_should_succeed_enable(self):
+        result = self.flush_agent.enable()
+        self.assertEqual(result.message, 'Flush agent some-flush-agent enabled on author')
+
     def test_flush_agent_delete_should_succeed_when_flush_agent_exists(self):
         result = self.flush_agent.delete()
         self.assertEqual(result.message, 'Flush agent some-flush-agent deleted on author')

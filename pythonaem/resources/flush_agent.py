@@ -63,6 +63,22 @@ class FlushAgent:
         """
         return self.client.call(self.__class__.__name__, 'delete', self.call_params)
 
+    def disable(self):
+        """
+        Disable the flush agent.
+
+        :return PythonAEM Result
+        """
+        return self.client.call(self.__class__.__name__, 'disable', self.call_params)
+
+    def enable(self):
+        """
+        Enable the flush agent.
+
+        :return PythonAEM Result
+        """
+        return self.client.call(self.__class__.__name__, 'enable', self.call_params)
+
     def exists(self):
         """
         Check whether the flush agent exists or not.

@@ -75,6 +75,44 @@ flushagent:
         403:
           handler: simple_error
           message: 'Flush agent {name} not found on {run_mode}'
+    disable:
+      api: sling
+      operation: post_agent
+      params:
+        required:
+          runmode: '{run_mode}'
+          name: '{name}'
+        optional:
+          jcrcontentenabled: false
+      responses:
+        200:
+          handler: simple
+          message: 'Flush agent {name} disabled on {run_mode}'
+        204:
+          handler: simple
+          message: 'Flush agent {name} disabled on {run_mode}'
+        403:
+          handler: simple_error
+          message: 'Flush agent {name} not found on {run_mode}'
+    enable:
+      api: sling
+      operation: post_agent
+      params:
+        required:
+          runmode: '{run_mode}'
+          name: '{name}'
+        optional:
+          jcrcontentenabled: true
+      responses:
+        200:
+          handler: simple
+          message: 'Flush agent {name} enabled on {run_mode}'
+        204:
+          handler: simple
+          message: 'Flush agent {name} enabled on {run_mode}'
+        403:
+          handler: simple_error
+          message: 'Flush agent {name} not found on {run_mode}'
     exists:
       api: sling
       operation: get_agent
@@ -142,6 +180,44 @@ replicationagent:
         204:
           handler: simple
           message: 'Replication agent {name} deleted on {run_mode}'
+        403:
+          handler: simple_error
+          message: 'Replication agent {name} not found on {run_mode}'
+    disable:
+      api: sling
+      operation: post_agent
+      params:
+        required:
+          runmode: '{run_mode}'
+          name: '{name}'
+        optional:
+          jcrcontentenabled: false
+      responses:
+        200:
+          handler: simple
+          message: 'Replication agent {name} disabled on {run_mode}'
+        204:
+          handler: simple
+          message: 'Replication agent {name} disabled on {run_mode}'
+        403:
+          handler: simple_error
+          message: 'Replication agent {name} not found on {run_mode}'
+    enable:
+      api: sling
+      operation: post_agent
+      params:
+        required:
+          runmode: '{run_mode}'
+          name: '{name}'
+        optional:
+          jcrcontentenabled: true
+      responses:
+        200:
+          handler: simple
+          message: 'Replication agent {name} enabled on {run_mode}'
+        204:
+          handler: simple
+          message: 'Replication agent {name} enabled on {run_mode}'
         403:
           handler: simple_error
           message: 'Replication agent {name} not found on {run_mode}'

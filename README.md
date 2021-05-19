@@ -57,18 +57,30 @@ Flush agent:
     # check flush agent's existence
     result = flush_agent.exists()
 
+    # Disable flush agent
+    result = flush_agent.disable()
+
+    # Enable flush agent
+    result = flush_agent.enable()
+
     # delete flush agent
     result = flush_agent.delete()
 
 Replication agent:
 
-    replication_agent = aem.replication_agent('author', 'some-flush-agent')
+    replication_agent = aem.replication_agent('author', 'some-replication-agent')
 
     # create or update replication agent
     result = replication_agent('author', 'some-replication-agent')
 
     # check replication agent's existence
     result = replication_agent.exists()
+
+    # Disable replication agent
+    result = replication_agent.disable()
+
+    # Enable replication agent
+    result = replication_agent.enable()
 
     # delete replication agent
     result = replication_agent.delete()
