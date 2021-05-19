@@ -1,9 +1,9 @@
 [![Build Status](https://github.com/shinesolutions/pythonaem/workflows/CI/badge.svg)](https://github.com/shinesolutions/pythonaem/actions?query=workflow%3ACI)
-[![Published Version](https://badge.fury.io/rb/pythonaem.svg)](https://rubygems.org/gems/pythonaem)
+[![Published Version](https://badge.fury.io/py/pythonaem.svg)](https://pypi.org/project/pythonaem/)
 [![Vulnerability Scanning Status](https://snyk.io/test/github/shinesolutions/pythonaem/badge.svg)](https://snyk.io/test/github/shinesolutions/pythonaem)
 
 PythonAEM
-------
+---------
 
 PythonAEM is a Python client for [Adobe Experience Manager (AEM)](http://www.adobe.com/au/marketing-cloud/enterprise-content-management.html) API.
 It is written on top of [pyswaggeraem](https://github.com/shinesolutions/swagger-aem/blob/master/python/README.md) and provides resource-oriented API and convenient response handling.
