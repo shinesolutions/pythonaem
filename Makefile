@@ -1,7 +1,7 @@
 ci: clean deps lint test-unit package install
 
 clean:
-	rm -rf *.egg-info build dist htmlcov pythonaem/_pycache_/ pythonaem/*.pyc tests/_pycache_/ tests/*.pyc .coverage
+	rm -rf *.egg-info build dist htmlcov pythonaem/__pycache__/ pythonaem/*.pyc tests/_pycache_/ tests/*.pyc .coverage .pytest/ .pytest_cache/
 
 deps:
 	pip3 install --ignore-installed -r requirements.txt

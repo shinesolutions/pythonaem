@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+- Add missing MANIFEST.in
+
+### Changd
+- Update `clean` make target
+
 ## 1.3.0 - 2021-05-19
 
 ### Added
