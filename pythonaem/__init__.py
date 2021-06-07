@@ -11,6 +11,7 @@ from .resources.aem import Aem
 from .resources.flush_agent import FlushAgent
 from .resources.replication_agent import ReplicationAgent
 
+
 class PythonAem:
     """
     Aem class represents an AEM client instance.
@@ -30,9 +31,9 @@ class PythonAem:
         conf = sanitise_conf(conf)
 
         configuration = swaggeraem.Configuration(
-            username = conf['username'],
-            password = conf['password'],
-            host = f'{conf["protocol"]}://{conf["host"]}:{conf["port"]}'
+            username=conf['username'],
+            password=conf['password'],
+            host=f'{conf["protocol"]}://{conf["host"]}:{conf["port"]}'
         )
 
         apis = {}
@@ -69,6 +70,7 @@ class PythonAem:
         :return: new PythonAEM Resources ReplicationAgent instance
         """
         return ReplicationAgent(self.client, run_mode, name)
+
 
 def sanitise_conf(conf):
     """

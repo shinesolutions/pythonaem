@@ -9,6 +9,7 @@ deps:
 
 lint:
 	pylint pythonaem/*.py pythonaem/*/*.py
+	pycodestyle --max-line-length=120 pythonaem/
 
 test-unit:
 	python3 -m unittest discover -s tests/unit/

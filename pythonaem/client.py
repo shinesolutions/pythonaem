@@ -10,6 +10,7 @@ from .response import Response
 from .result import Result
 from .swagger import operation_to_method
 
+
 class Client:
     """
     Client class makes Swagger AEM API calls and handles the response as

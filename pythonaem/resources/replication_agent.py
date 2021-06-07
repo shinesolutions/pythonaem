@@ -4,6 +4,7 @@ ReplicationAgent class contains API calls related to managing an AEM replication
 
 from urllib.parse import urlparse
 
+
 class ReplicationAgent:
     """
     ReplicationAgent class contains API calls related to managing an AEM replication agent.
@@ -28,12 +29,12 @@ class ReplicationAgent:
         title,
         description,
         dest_base_url,
-        opts = {
+        opts={
           'transport_user': 'admin',
           'transport_password': 'admin',
           'log_level': 'error',
           'retry_delay': 30_000
-        }):
+          }):
         """
         Create or update a replication agent.
 

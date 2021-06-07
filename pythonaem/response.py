@@ -2,6 +2,7 @@
 Response wraps HTTP response data returned by swaggeraem.
 """
 
+
 class Response:
     """
     Response wraps HTTP response data returned by swaggeraem.

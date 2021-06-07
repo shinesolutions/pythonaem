@@ -4,6 +4,7 @@ FlushAgent class contains API calls related to managing an AEM flush agent.
 
 from urllib.parse import urlparse
 
+
 class FlushAgent:
     """
     FlushAgent class contains API calls related to managing an AEM flush agent.
@@ -28,10 +29,10 @@ class FlushAgent:
         title,
         description,
         dest_base_url,
-        opts = {
+        opts={
           'log_level': 'error',
           'retry_delay': 30_000
-        }):
+          }):
         """
         Create or update a flush agent.
 

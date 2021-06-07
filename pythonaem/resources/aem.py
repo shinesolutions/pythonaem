@@ -2,6 +2,7 @@
 AEM resources.
 """
 
+
 class Aem:
     """
     AEM class contains API calls related to managing the AEM instance itself.

@@ -2,6 +2,7 @@
 Result class represents the result of a client call.
 """
 
+
 class Result:
     """
     Result contains the following attributes:

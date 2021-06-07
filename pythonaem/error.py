@@ -2,6 +2,7 @@
 PythonAEM error, contains a message and PythonAEM Result object
 """
 
+
 class Error(RuntimeError):
     """
     PythonAEM error, contains a message and PythonAEM Result object
