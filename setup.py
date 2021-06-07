@@ -23,6 +23,7 @@ setuptools.setup(
     url="https://github.com/shinesolutions/pythonaem",
     packages=setuptools.find_packages(),
     include_package_data=True,
+    zip_safe=True,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache Software License",

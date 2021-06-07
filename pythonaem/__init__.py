@@ -1,6 +1,7 @@
 """
 PythonAEM is a Python API client for interacting with AEM API.
 """
+import pkgutil
 import swaggeraem
 from swaggeraem.apis.custom_api import CustomApi
 from swaggeraem.apis.sling_api import SlingApi
@@ -39,8 +40,8 @@ class PythonAem:
             apis['custom'] = CustomApi(api_client)
             apis['sling'] = SlingApi(api_client)
 
-        with open('conf/spec.yaml', 'r') as spec_stream:
-            spec = yaml.safe_load(spec_stream)
+        spec_stream = pkgutil.get_data(__name__, "conf/spec.yaml")
+        spec = yaml.safe_load(spec_stream)
 
         self.client = Client(apis, spec)
 
