@@ -41,6 +41,7 @@ Initialise client:
     client = PythonAem(conf)
 
 Aem:
+
     aem = client.aem()
     result = aem.get_aem_health_check({
         'tags': 'shallow',
