@@ -79,7 +79,6 @@ class SimpleHandler:
         """
         response_message = self.response_spec['message'].format(**self.call_params)
         result = self.simple()
-        print(response_message)
         raise Error(response_message, result)
 
     def simple_body(self):
@@ -104,15 +103,7 @@ class SimpleHandler:
         :param call_params: API call parameters
         :return PythonAEM Result
         """
-        print(">>>>>>>")
-        print(type(self.response))
-        print(self.response.body)
-        print(type(self.response.body))
-        print("bb")
         _json = json.loads(self.response.body)
-        print("aa")
-        print(_json)
         response_message = self.response_spec['message'].format(**self.call_params)
-        print(_json)
         data = _json['results']
         return Result(response_message, self.response, data)

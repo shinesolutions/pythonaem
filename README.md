@@ -38,10 +38,10 @@ Initialise client:
         'host': 'localhost',
         'port': 4502,
     }
-    aem = PythonAem(conf)
+    client = PythonAem(conf)
 
 Aem:
-
+    aem = client.aem()
     result = aem.get_aem_health_check({
         'tags': 'shallow',
         'combine_tags_or': 'false',
@@ -49,7 +49,7 @@ Aem:
 
 Flush agent:
 
-    flush_agent = aem.flush_agent('author', 'some-flush-agent')
+    flush_agent = client.flush_agent('author', 'some-flush-agent')
 
     # create or update flush agent
     result = flush_agent.create_update('Some Flush Agent Title', 'Some flush agent description', 'http://somehost:8080')
@@ -68,7 +68,7 @@ Flush agent:
 
 Replication agent:
 
-    replication_agent = aem.replication_agent('author', 'some-replication-agent')
+    replication_agent = client.replication_agent('author', 'some-replication-agent')
 
     # create or update replication agent
     result = replication_agent.create_update('Some Replication Agent Title', 'Some Replication agent description', 'http://somehost:8080')
@@ -91,7 +91,7 @@ Result
 Each of the above method calls returns a [Result](https://github.com/shinesolutions/pythonaem/blob/master/pythonaem/result.py), which contains message, [Response](https://github.com/shinesolutions/pythonaem/blob/master/pythonaem/response.py), and data payload. For example:
 
 
-    flush_agent = aem.flush_agent('author', 'some-inexisting-flush-agent')
+    flush_agent = client.flush_agent('author', 'some-inexisting-flush-agent')
     result = flush_agent.delete()
     print(result.message)
     print(result.response.status_code)
@@ -102,7 +102,7 @@ Each of the above method calls returns a [Result](https://github.com/shinesoluti
 Error Handling
 --------------
 
-    flush_agent = aem.flush_agent('author', 'some-inexisting-flush-agent')
+    flush_agent = client.flush_agent('author', 'some-inexisting-flush-agent')
     try:
         result = flush_agent.delete()
     except Exception as error:
