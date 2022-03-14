@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Add swagger SSL configuration parameters
+
 ## [1.6.0] - 2021-06-07
 ### Added
 - Add pycodestyle linting

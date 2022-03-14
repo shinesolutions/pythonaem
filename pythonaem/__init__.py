@@ -33,7 +33,12 @@ class PythonAem:
         configuration = swaggeraem.Configuration(
             username=conf['username'],
             password=conf['password'],
-            host=f'{conf["protocol"]}://{conf["host"]}:{conf["port"]}'
+            host=f'{conf["protocol"]}://{conf["host"]}:{conf["port"]}',
+            debug=conf['debug']
+            verify_ssl=conf['verify_ssl']
+            ssl_ca_cert=conf['ssl_ca_cert']
+            cert_file=conf['cert_file']
+            key_file=conf['key_file']
         )
 
         apis = {}
@@ -83,4 +88,9 @@ def sanitise_conf(conf):
     conf['protocol'] = conf.get('protocol', 'http')
     conf['host'] = conf.get('host', 'localhost')
     conf['port'] = conf.get('port', 4502)
+    conf['debug'] = conf.get('debug', False)
+    conf['verify_ssl'] = conf.get('verify_ssl', True)
+    conf['ssl_ca_cert'] = conf.get('ssl_ca_cert', None)
+    conf['cert_file'] = conf.get('cert_file', None)
+    conf['key_file'] = conf.get('key_file', None)
     return conf
