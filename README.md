@@ -37,6 +37,11 @@ Initialise client:
         'protocol': 'http',
         'host': 'localhost',
         'port': 4502,
+        'debug': True,
+        'verify_ssl': True,
+        'ssl_ca_cert': None,
+        'cert_file': None,
+        'key_file': None
     }
     client = PythonAem(conf)
 
