@@ -33,13 +33,13 @@ class PythonAem:
         configuration = swaggeraem.Configuration(
             username=conf['username'],
             password=conf['password'],
-            host=f'{conf["protocol"]}://{conf["host"]}:{conf["port"]}',
-            debug=conf['debug']
-            verify_ssl=conf['verify_ssl']
-            ssl_ca_cert=conf['ssl_ca_cert']
-            cert_file=conf['cert_file']
-            key_file=conf['key_file']
+            host=f'{conf["protocol"]}://{conf["host"]}:{conf["port"]}'
         )
+        configuration.debug = conf['debug']
+        configuration.verify_ssl = conf['verify_ssl']
+        configuration.ssl_ca_cert = conf['ssl_ca_cert']
+        configuration.cert_file = conf['cert_file']
+        configuration.key_file = conf['key_file']
 
         apis = {}
         with swaggeraem.ApiClient(configuration) as api_client:
