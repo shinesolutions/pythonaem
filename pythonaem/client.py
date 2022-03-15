@@ -107,7 +107,7 @@ class Client:
                 response.status_code, response.headers, response.body
             )
             result = Result(message, response)
-            raise Error(message, result)
+            raise RuntimeError(message)
 
     # Switch boolean type  check to isinstance after integration and unit tests have better coverage
     # pylint: disable=unidiomatic-typecheck
