@@ -4,10 +4,8 @@ configured in conf/spec.yaml .
 """
 
 from swaggeraem.exceptions import ApiException
-from .error import Error
 from .handlers.simple import SimpleHandler
 from .response import Response
-from .result import Result
 from .swagger import operation_to_method
 
 
@@ -106,7 +104,6 @@ class Client:
             message = "Unexpected response\nstatus code: {}\nheaders: {}\nbody: {}".format(
                 response.status_code, response.headers, response.body
             )
-            result = Result(message, response)
             raise RuntimeError(message)
 
     # Switch boolean type  check to isinstance after integration and unit tests have better coverage
